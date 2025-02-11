@@ -24,8 +24,9 @@ export default function Login() {
         password: password,
       })
       .then((response) => {
-        Cookies.set("token", response.data.token);
-        Cookies.set("user", JSON.stringify(response.data.user));
+        console.log(response.status);
+        Cookies.set("token", response.data.data.token);
+        Cookies.set("user", JSON.stringify(response.data.data.user));
 
         setIsAuthenticated(true);
         navigate("/admin/dashboard", { replace: true });
